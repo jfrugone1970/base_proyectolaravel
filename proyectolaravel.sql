@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-01-2020 a las 17:03:04
+-- Tiempo de generación: 23-03-2020 a las 22:50:55
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.1
 
@@ -45,7 +45,8 @@ INSERT INTO `bancos` (`id`, `nombre`, `descripcion`, `condicion`, `created_at`, 
 (5, 'Bolivariano', 'Banco Bolivariano', 1, '2020-01-18 01:29:45', '2020-01-18 01:29:45'),
 (6, 'Internacional', 'Internacional', 1, '2020-01-18 01:30:07', '2020-01-18 01:30:07'),
 (7, 'Pacifico', 'Banco del Pacífico', 1, '2020-01-18 01:30:41', '2020-01-18 01:30:41'),
-(99, 'Sin Banco', 'No existe', 1, NULL, NULL);
+(99, 'Sin Banco', 'No existe', 1, NULL, NULL),
+(100, 'Banco General Rumiñahui', 'BGR', 1, '2020-02-11 02:37:43', '2020-02-11 02:37:43');
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,8 @@ CREATE TABLE `clientes_banco` (
 INSERT INTO `clientes_banco` (`id`, `idcliente`, `idbanco`, `banco`, `tipo_cta`, `cuenta`, `estado`, `created_at`, `updated_at`) VALUES
 (3, 1, 5, 'Bolivariano', 'CORRIENTE', '234789654', 'Registrada', '2020-01-18 16:56:59', '2020-01-18 16:56:59'),
 (4, 2, 7, 'Pacifico', 'CORRIENTE', '45578654', 'Registrada', '2020-01-18 16:57:56', '2020-01-18 16:57:56'),
-(5, 3, 7, 'Pacifico', 'CORRIENTE', '45764323', 'Registrada', '2020-01-20 05:35:17', '2020-01-20 05:35:17');
+(5, 3, 7, 'Pacifico', 'CORRIENTE', '45764323', 'Registrada', '2020-01-20 05:35:17', '2020-01-20 05:35:17'),
+(6, 2, 100, 'Banco General Rumiñahui', 'CORRIENTE', '23364578', 'Registrada', '2020-02-11 02:39:24', '2020-02-11 02:39:24');
 
 -- --------------------------------------------------------
 
@@ -190,7 +192,8 @@ INSERT INTO `compras` (`id`, `idproveedor`, `idusuario`, `tipo_identificacion`, 
 (5, 1, 1, 'FACTURA', '005', '2019-10-28 00:00:00', '0.12', '144.00', 'Registrado', '2019-10-29 04:02:35', '2019-10-29 04:02:35'),
 (6, 1, 1, 'FACTURA', '6', '2020-01-03 00:00:00', '0.12', '780.00', 'Registrado', '2020-01-03 05:35:46', '2020-01-03 05:35:46'),
 (7, 2, 1, 'FACTURA', '10', '2020-01-17 00:00:00', '0.12', '1560.00', 'Registrado', '2020-01-18 03:36:21', '2020-01-18 03:36:21'),
-(8, 3, 1, 'FACTURA', '11', '2020-01-19 00:00:00', '0.12', '780.00', 'Registrado', '2020-01-20 03:09:09', '2020-01-20 03:09:09');
+(8, 3, 1, 'FACTURA', '11', '2020-01-19 00:00:00', '0.12', '780.00', 'Registrado', '2020-01-20 03:09:09', '2020-01-20 03:09:09'),
+(9, 1, 1, 'FACTURA', '26', '2020-03-21 00:00:00', '0.12', '670.00', 'Registrado', '2020-03-21 19:13:24', '2020-03-21 19:13:24');
 
 --
 -- Disparadores `compras`
@@ -241,7 +244,9 @@ INSERT INTO `detalle_compras` (`id`, `idcompra`, `idproducto`, `cantidad`, `prec
 (14, 7, 3, 200, '1.10'),
 (15, 8, 5, 100, '6.00'),
 (16, 8, 4, 100, '0.70'),
-(17, 8, 3, 100, '1.10');
+(17, 8, 3, 100, '1.10'),
+(18, 9, 5, 100, '6.00'),
+(19, 9, 4, 100, '0.70');
 
 --
 -- Disparadores `detalle_compras`
@@ -306,7 +311,21 @@ INSERT INTO `detalle_ventas` (`id`, `idventa`, `idproducto`, `cantidad`, `precio
 (31, 26, 5, 8, '6.00', '0.00'),
 (32, 26, 4, 8, '0.70', '0.00'),
 (33, 27, 5, 5, '6.00', '0.00'),
-(34, 27, 4, 5, '0.70', '0.00');
+(34, 27, 4, 5, '0.70', '0.00'),
+(35, 28, 4, 5, '0.70', '0.00'),
+(36, 28, 5, 5, '6.00', '0.00'),
+(37, 29, 5, 5, '6.00', '0.00'),
+(38, 29, 4, 5, '0.70', '0.00'),
+(39, 30, 5, 10, '6.00', '0.00'),
+(40, 31, 4, 8, '0.70', '0.00'),
+(41, 32, 4, 5, '0.70', '0.00'),
+(42, 33, 4, 5, '0.70', '0.00'),
+(43, 34, 4, 5, '0.70', '0.00'),
+(44, 35, 4, 5, '0.70', '0.00'),
+(45, 36, 5, 5, '6.00', '0.00'),
+(46, 37, 4, 5, '0.70', '0.00'),
+(47, 38, 5, 5, '6.00', '0.00'),
+(48, 38, 4, 5, '0.70', '0.00');
 
 --
 -- Disparadores `detalle_ventas`
@@ -370,10 +389,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2019_10_31_022242_create_detalle_ventas_table', 4),
 (19, '2019_12_25_064711_create_bancos_table', 6),
 (28, '2019_12_31_184650_create_tarjeta_table', 7),
-(31, '2020_01_02_180001_create_pagos_table', 10),
-(33, '2020_01_04_204902_create_forma_pago_table', 11),
 (34, '2019_12_25_222955_create_clientes_tarjetas_table', 12),
-(35, '2019_12_26_141551_create_clientes_banco_table', 12);
+(35, '2019_12_26_141551_create_clientes_banco_table', 12),
+(39, '2020_01_02_180001_create_pagos_table', 13);
 
 -- --------------------------------------------------------
 
@@ -383,10 +401,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `pagos` (
   `id` int(10) UNSIGNED NOT NULL,
+  `factura` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipo_pago` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `idcliente` int(10) UNSIGNED NOT NULL,
+  `nombre` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idbanco` int(10) UNSIGNED NOT NULL,
+  `nombre_banco` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idtarjeta` int(10) UNSIGNED NOT NULL,
+  `nombre_tarjeta` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `valor` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -396,10 +418,11 @@ CREATE TABLE `pagos` (
 -- Volcado de datos para la tabla `pagos`
 --
 
-INSERT INTO `pagos` (`id`, `tipo_pago`, `idcliente`, `idbanco`, `idtarjeta`, `valor`, `created_at`, `updated_at`) VALUES
-(1, 'Cheque', 2, 7, 99, 34, '2020-01-19 04:23:27', '2020-01-19 04:23:27'),
-(2, 'Cheque', 2, 7, 99, 54, '2020-01-19 04:50:34', '2020-01-19 04:50:34'),
-(3, 'Cheque', 2, 7, 99, 34, '2020-01-19 13:33:02', '2020-01-19 13:33:02');
+INSERT INTO `pagos` (`id`, `factura`, `tipo_pago`, `idcliente`, `nombre`, `idbanco`, `nombre_banco`, `idtarjeta`, `nombre_tarjeta`, `valor`, `created_at`, `updated_at`) VALUES
+(1, '35', 'Cheque', 3, 'Cliente 2', 7, 'Pacifico', 99, 'Sin Tarjeta', 30, '2020-03-23 16:07:41', '2020-03-23 16:07:41'),
+(2, '35', 'Cheque', 3, 'Cliente 2', 7, 'Pacifico', 99, 'Sin Tarjeta', 30, '2020-03-23 16:48:48', '2020-03-23 16:48:48'),
+(3, '36', 'Cheque', 3, 'Cliente 2', 7, 'Pacifico', 99, 'Sin Tarjeta', 4, '2020-03-23 17:37:05', '2020-03-23 17:37:05'),
+(4, '37', 'Cheque', 2, 'Cliente 1', 7, 'Pacifico', 99, 'Sin Tarjeta', 34, '2020-03-23 21:44:32', '2020-03-23 21:44:32');
 
 -- --------------------------------------------------------
 
@@ -440,8 +463,8 @@ INSERT INTO `productos` (`id`, `idcategoria`, `codigo`, `nombre`, `precio_venta`
 (1, 2, '234567', 'Aceite La Favorita', '1.25', 50, 1, 'MD2sBht6tI1U8IxZ.jpg', '2019-08-25 07:48:21', '2019-12-09 06:20:36'),
 (2, 2, '346784', 'Aceite el Cocinero', '2.00', 1, 1, 'cfXw1fld7sVPbfB0.jpg', '2019-08-25 07:49:04', '2019-12-09 06:20:13'),
 (3, 2, '4578965', 'Aceite de Oliva', '1.10', 498, 1, 'zkq9ipZqh051mCPB.jpg', '2019-08-25 07:49:58', '2019-12-09 06:19:50'),
-(4, 2, '456745', 'Aceite Girasol', '0.70', 559, 1, 'NEt4mjveiJOx4Il9.jpg', '2019-08-25 07:50:49', '2019-12-09 06:19:30'),
-(5, 1, '456', 'Arroz Flor', '6.00', 335, 1, 'JUwMDyPTdEpKUl6P.jpg', '2019-08-25 07:51:43', '2019-12-10 02:43:35');
+(4, 2, '456745', 'Aceite Girasol', '0.70', 611, 1, 'NEt4mjveiJOx4Il9.jpg', '2019-08-25 07:50:49', '2019-12-09 06:19:30'),
+(5, 1, '456', 'Arroz Flor', '6.00', 405, 1, 'JUwMDyPTdEpKUl6P.jpg', '2019-08-25 07:51:43', '2019-12-10 02:43:35');
 
 -- --------------------------------------------------------
 
@@ -550,7 +573,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`, `usuario`, `password`, `condicion`, `idrol`, `imagen`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'CEDULA', '0914567854', 'Cdla. Sauces 2', '0995643678', 'prueba123@hotmail.com', 'Admin1970', '$2y$10$lo/iYvMVo9pSQhjyuBxrh.9JMAlUnnrVY1aXEEdNAZfWIyY5snK2.', 1, 1, 'fW0LnERUSiPNeC5w.jpg', 'ZHzFuqSkbBVdkyN9IxSj5oDUHFXwqCt2Uqe7l3r6zHe413j9e3ejjFWJJX0k', '2019-08-25 08:01:59', '2019-12-10 02:47:13'),
+(1, 'Administrador', 'CEDULA', '0914567854', 'Cdla. Sauces 2', '0995643678', 'prueba123@hotmail.com', 'Admin1970', '$2y$10$lo/iYvMVo9pSQhjyuBxrh.9JMAlUnnrVY1aXEEdNAZfWIyY5snK2.', 1, 1, 'fW0LnERUSiPNeC5w.jpg', 'MHgoPiNcAAY7AfmBDKcsie1rkcAmoB8yxlcFtvUm4cI6aHpdzcz6zTemblum', '2019-08-25 08:01:59', '2019-12-10 02:47:13'),
 (2, 'Patricio Garzon', 'CEDULA', '10347393848', 'Cdla Sauces 9 Mz F50 Villa 12', '2624567', 'patriciogarzon40@gmail.com', 'patricio2', '$2y$10$h.fKAyZeTrPoPwEH2wOLfuLEggO9Z.i.NGwpasDvqf77mD2Nkx3xW', 1, 2, '3P1vzdVk3alyMqoz.jpg', NULL, '2019-08-25 08:03:40', '2019-12-09 06:18:28'),
 (3, 'Lorena Gonzalez', 'CEDULA', '104534875', 'Urb. Riberas del Batan', '0451067456', 'lorena36@hotmail.com', 'jessileo1974', '$2y$10$tZT58igSfw1VIWD6/apGSuTXkgEE.wdMLcv2fKlSZ/TWAIG0Uczwa', 1, 2, 'nia1Yirf3biifYPE.jpg', 'Oem9t0EAIDcbWvWyt8eIJWKSO7eWT7E8MKrMeOj1bf0DQT93dO9XAnPPO9wO', '2019-09-16 08:34:13', '2019-12-09 06:17:54'),
 (4, 'Jorge Zamora', 'CEDULA', '09234576835', 'Cdla. Sauces 7', '2237896', 'jorgezamora36@hotmail.com', 'jorge2019', '$2y$10$OA/1EY7HhDOp.BFQXzNAGu0f8rg80KJ.ex3lEoa2OPp2tq0b8y8nC', 1, 2, '0iyfb0ztq1cC6WT4.jpg', NULL, '2019-12-08 14:37:46', '2019-12-08 14:37:46');
@@ -597,7 +620,18 @@ INSERT INTO `ventas` (`id`, `idcliente`, `idusuario`, `tipo_identificacion`, `nu
 (24, 2, 1, 'FACTURA', '19', '2020-01-18 00:00:00', '0.20', '13.40', 'Registrado', '2020-01-19 04:00:30', '2020-01-19 04:00:30'),
 (25, 2, 1, 'FACTURA', '20', '2020-01-18 00:00:00', '0.20', '33.50', 'Registrado', '2020-01-19 04:23:12', '2020-01-19 04:23:12'),
 (26, 2, 1, 'FACTURA', '21', '2020-01-18 00:00:00', '0.20', '53.60', 'Registrado', '2020-01-19 04:50:26', '2020-01-19 04:50:26'),
-(27, 2, 1, 'FACTURA', '20', '2020-01-19 00:00:00', '0.20', '33.50', 'Registrado', '2020-01-19 13:32:52', '2020-01-19 13:32:52');
+(27, 2, 1, 'FACTURA', '20', '2020-01-19 00:00:00', '0.20', '33.50', 'Registrado', '2020-01-19 13:32:52', '2020-01-19 13:32:52'),
+(28, 2, 1, 'FACTURA', '23', '2020-02-07 00:00:00', '0.20', '33.50', 'Registrado', '2020-02-07 23:24:07', '2020-02-07 23:24:07'),
+(29, 3, 1, 'FACTURA', '22', '2020-03-21 00:00:00', '0.12', '33.50', 'Registrado', '2020-03-21 19:16:54', '2020-03-21 19:16:54'),
+(30, 2, 1, 'FACTURA', '26', '2020-03-22 00:00:00', '0.12', '60.00', 'Registrado', '2020-03-23 01:30:36', '2020-03-23 01:30:36'),
+(31, 3, 1, 'FACTURA', '30', '2020-03-22 00:00:00', '0.12', '5.60', 'Registrado', '2020-03-23 03:03:59', '2020-03-23 03:03:59'),
+(32, 2, 1, 'FACTURA', '31', '2020-03-22 00:00:00', '0.12', '3.50', 'Registrado', '2020-03-23 03:34:17', '2020-03-23 03:34:17'),
+(33, 2, 1, 'FACTURA', '32', '2020-03-22 00:00:00', '0.12', '3.50', 'Registrado', '2020-03-23 03:49:52', '2020-03-23 03:49:52'),
+(34, 2, 1, 'FACTURA', '33', '2020-03-22 00:00:00', '0.12', '3.50', 'Registrado', '2020-03-23 04:44:28', '2020-03-23 04:44:28'),
+(35, 2, 1, 'FACTURA', '34', '2020-03-23 00:00:00', '0.12', '3.50', 'Registrado', '2020-03-23 05:21:31', '2020-03-23 05:21:31'),
+(36, 3, 1, 'FACTURA', '35', '2020-03-23 00:00:00', '0.12', '30.00', 'Registrado', '2020-03-23 16:48:51', '2020-03-23 16:48:51'),
+(37, 3, 1, 'FACTURA', '36', '2020-03-23 00:00:00', '0.12', '3.50', 'Registrado', '2020-03-23 17:37:09', '2020-03-23 17:37:09'),
+(38, 2, 1, 'FACTURA', '37', '2020-03-23 00:00:00', '0.12', '33.50', 'Registrado', '2020-03-23 21:44:41', '2020-03-23 21:44:41');
 
 --
 -- Disparadores `ventas`
@@ -760,7 +794,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `bancos`
 --
 ALTER TABLE `bancos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -778,7 +812,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `clientes_banco`
 --
 ALTER TABLE `clientes_banco`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes_tarjetas`
@@ -790,19 +824,19 @@ ALTER TABLE `clientes_tarjetas`
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_compras`
 --
 ALTER TABLE `detalle_compras`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_ventas`
 --
 ALTER TABLE `detalle_ventas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `forma_pago`
@@ -814,13 +848,13 @@ ALTER TABLE `forma_pago`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -856,7 +890,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restricciones para tablas volcadas
@@ -902,9 +936,9 @@ ALTER TABLE `detalle_ventas`
 -- Filtros para la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  ADD CONSTRAINT `pagos_idbanco_foreign` FOREIGN KEY (`idbanco`) REFERENCES `bancos` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `pagos_idcliente_foreign` FOREIGN KEY (`idcliente`) REFERENCES `clientes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `pagos_idtarjeta_foreign` FOREIGN KEY (`idtarjeta`) REFERENCES `tarjeta` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `pagos_idbanco_foreign` FOREIGN KEY (`idbanco`) REFERENCES `bancos` (`id`),
+  ADD CONSTRAINT `pagos_idcliente_foreign` FOREIGN KEY (`idcliente`) REFERENCES `clientes` (`id`),
+  ADD CONSTRAINT `pagos_idtarjeta_foreign` FOREIGN KEY (`idtarjeta`) REFERENCES `tarjeta` (`id`);
 
 --
 -- Filtros para la tabla `productos`
