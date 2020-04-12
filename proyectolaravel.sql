@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-03-2020 a las 22:50:55
+-- Tiempo de generación: 11-04-2020 a las 18:01:41
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.1
 
@@ -573,7 +573,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`, `usuario`, `password`, `condicion`, `idrol`, `imagen`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'CEDULA', '0914567854', 'Cdla. Sauces 2', '0995643678', 'prueba123@hotmail.com', 'Admin1970', '$2y$10$lo/iYvMVo9pSQhjyuBxrh.9JMAlUnnrVY1aXEEdNAZfWIyY5snK2.', 1, 1, 'fW0LnERUSiPNeC5w.jpg', 'MHgoPiNcAAY7AfmBDKcsie1rkcAmoB8yxlcFtvUm4cI6aHpdzcz6zTemblum', '2019-08-25 08:01:59', '2019-12-10 02:47:13'),
+(1, 'Administrador', 'CEDULA', '0914567854', 'Cdla. Sauces 2', '0995643678', 'prueba123@hotmail.com', 'Admin1970', '$2y$10$lo/iYvMVo9pSQhjyuBxrh.9JMAlUnnrVY1aXEEdNAZfWIyY5snK2.', 1, 1, 'fW0LnERUSiPNeC5w.jpg', 'E9kgtJZyoSfVOm8qGECRLkyh4W49KfWy6bIM7vtqgMGJqPE2guBjqC6Jl2Pb', '2019-08-25 08:01:59', '2019-12-10 02:47:13'),
 (2, 'Patricio Garzon', 'CEDULA', '10347393848', 'Cdla Sauces 9 Mz F50 Villa 12', '2624567', 'patriciogarzon40@gmail.com', 'patricio2', '$2y$10$h.fKAyZeTrPoPwEH2wOLfuLEggO9Z.i.NGwpasDvqf77mD2Nkx3xW', 1, 2, '3P1vzdVk3alyMqoz.jpg', NULL, '2019-08-25 08:03:40', '2019-12-09 06:18:28'),
 (3, 'Lorena Gonzalez', 'CEDULA', '104534875', 'Urb. Riberas del Batan', '0451067456', 'lorena36@hotmail.com', 'jessileo1974', '$2y$10$tZT58igSfw1VIWD6/apGSuTXkgEE.wdMLcv2fKlSZ/TWAIG0Uczwa', 1, 2, 'nia1Yirf3biifYPE.jpg', 'Oem9t0EAIDcbWvWyt8eIJWKSO7eWT7E8MKrMeOj1bf0DQT93dO9XAnPPO9wO', '2019-09-16 08:34:13', '2019-12-09 06:17:54'),
 (4, 'Jorge Zamora', 'CEDULA', '09234576835', 'Cdla. Sauces 7', '2237896', 'jorgezamora36@hotmail.com', 'jorge2019', '$2y$10$OA/1EY7HhDOp.BFQXzNAGu0f8rg80KJ.ex3lEoa2OPp2tq0b8y8nC', 1, 2, '0iyfb0ztq1cC6WT4.jpg', NULL, '2019-12-08 14:37:46', '2019-12-08 14:37:46');
